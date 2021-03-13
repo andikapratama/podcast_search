@@ -11,7 +11,7 @@ dependencies:
   archive: ^2.0.13
   convert: ^2.1.1
   crypto: ^2.1.5
-  dio: ^3.0.10
+  dio: ^4.0.0-beta7
   # dart_rss: ^1.1.1+1
   # Temporarily use custom fork required for podcast namespace.
   dart_rss:
