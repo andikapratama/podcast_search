@@ -17,6 +17,7 @@ dependencies:
   dart_rss:
     git:
       url: https://github.com/andikapratama/dart-rss
+      ref: a7ae651
   meta: ^1.2.4
 
 dev_dependencies:
