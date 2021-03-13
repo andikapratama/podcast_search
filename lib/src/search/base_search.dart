@@ -2,7 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:podcast_search/podcast_search.dart';
 
-const podcastSearchAgent = 'podcast_search/0.4.0 https://github.com/amugofjava/anytime_podcast_player';
+const podcastSearchAgent =
+    'podcast_search/0.4.0 https://github.com/amugofjava/anytime_podcast_player';
 
 abstract class BaseSearch {
   /// Contains the type of error returning from the search. If no error occurred it
@@ -30,18 +31,18 @@ abstract class BaseSearch {
   /// if there was an issue or not.
   void setLastError(DioError e) {
     switch (e.type) {
-      case DioErrorType.DEFAULT:
-      case DioErrorType.CONNECT_TIMEOUT:
-      case DioErrorType.SEND_TIMEOUT:
-      case DioErrorType.RECEIVE_TIMEOUT:
+      case DioErrorType.other:
+      case DioErrorType.connectTimeout:
+      case DioErrorType.sendTimeout:
+      case DioErrorType.receiveTimeout:
         lastErrorType = ErrorType.connection;
         lastError = 'Connection timeout';
         break;
-      case DioErrorType.RESPONSE:
+      case DioErrorType.response:
         lastErrorType = ErrorType.failed;
         lastError = 'Server returned response error ${e.response?.statusCode}';
         break;
-      case DioErrorType.CANCEL:
+      case DioErrorType.cancel:
         lastErrorType = ErrorType.cancelled;
         lastError = 'Request was cancelled';
         break;
